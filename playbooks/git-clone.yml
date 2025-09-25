@@ -1,7 +1,7 @@
 ---
 - name: General test
   hosts: ssh-test
-  connection: local
+  # connection: local
   gather_facts: false
 
   vars:
