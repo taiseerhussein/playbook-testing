@@ -1,0 +1,18 @@
+---
+- name: General test
+  hosts: ssh-test
+  connection: local
+  gather_facts: false
+
+  vars:
+    tf_build: "ansible01"
+    terraform_working_dir: /tmp/srv
+    
+  tasks:
+    - name: Clone Terraform Repo
+      ansible.builtin.git:
+        repo: 'https://github.com/taiseerhussein/terraform-files.git'
+        version: main
+        accept_newhostkey: true
+        # key_file: "{{ cert_key_file }}"
+        dest: "{{ terraform_working_dir }}"
